@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.11.9 on win32)" generated="2025-07-24T00:16:16.077203" rpa="false" schemaversion="5">
+<suite id="s1" name="Delete" source="C:\Users\ttser\OneDrive\เดสก์ท็อป\RPA_Robot Framework\crud.test\delete.test\delete.robot">
+<kw name="Open Browser To Posts Page" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-24T00:16:16.301458" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/posts'.</msg>
+<arg>${POSTS_URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-24T00:16:16.301458" elapsed="4.656057"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-24T00:16:20.957515" elapsed="0.031634"/>
+</kw>
+<status status="PASS" start="2025-07-24T00:16:16.301458" elapsed="4.687691"/>
+</kw>
+<test id="s1-t1" name="Login As Admin" line="11">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-24T00:16:20.990656" level="INFO">Opening url 'http://localhost:3000/auth/login'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-24T00:16:20.990656" elapsed="0.045448"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-24T00:16:21.037105" level="INFO">Typing text 'user3' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>user3</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-24T00:16:21.036104" elapsed="0.090278"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-24T00:16:21.127395" level="INFO">Typing text 'user3' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>user3</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-24T00:16:21.127395" elapsed="0.083590"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-24T00:16:21.211997" level="INFO">Clicking button 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-24T00:16:21.211997" elapsed="0.070230"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2025-07-24T00:16:21.679416" level="INFO">Current location is 'http://localhost:3000/index'.</msg>
+<arg>http://localhost:3000/index</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2025-07-24T00:16:21.282227" elapsed="0.397189"/>
+</kw>
+<status status="PASS" start="2025-07-24T00:16:20.989149" elapsed="0.690267"/>
+</test>
+<test id="s1-t2" name="Delete First Post" line="18">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-24T00:16:21.680922" level="INFO">Opening url 'http://localhost:3000/posts'</msg>
+<arg>${POSTS_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-24T00:16:21.679416" elapsed="0.054716"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-07-24T00:16:21.753678" level="INFO">${title} = ข่าวใหม่</msg>
+<var>${title}</var>
+<arg>xpath=(//div[contains(@class,'post')])[1]//h2</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-24T00:16:21.734132" elapsed="0.019546"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-24T00:16:21.753678" level="INFO">Clicking button 'xpath=(//button[contains(normalize-space(),"ลบ")])[1]'.</msg>
+<arg>xpath=(//button[contains(normalize-space(),"ลบ")])[1]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-24T00:16:21.753678" elapsed="0.060772"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-07-24T00:16:21.815450" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>ACCEPT</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-07-24T00:16:21.815450" elapsed="0.004142"/>
+</kw>
+<arg>Handle Alert</arg>
+<arg>ACCEPT</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-24T00:16:21.815450" elapsed="0.004142"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-24T00:16:22.821037" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-24T00:16:21.819592" elapsed="1.001445"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-24T00:16:22.821037" level="INFO">Opening url 'http://localhost:3000/posts'</msg>
+<arg>${POSTS_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-24T00:16:22.821037" elapsed="0.023551"/>
+</kw>
+<kw name="Page Should Not Contain" owner="SeleniumLibrary">
+<msg time="2025-07-24T00:16:22.869824" level="INFO">Current page does not contain text 'ข่าวใหม่'.</msg>
+<arg>${title}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<status status="PASS" start="2025-07-24T00:16:22.844588" elapsed="0.025236"/>
+</kw>
+<doc>ทดสอบลบโพสต์แรก</doc>
+<status status="PASS" start="2025-07-24T00:16:21.679416" elapsed="1.190408"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-24T00:16:22.870880" elapsed="2.128274"/>
+</kw>
+<status status="PASS" start="2025-07-24T00:16:16.078203" elapsed="8.920951"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Delete" id="s1" pass="2" fail="0" skip="0">Delete</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

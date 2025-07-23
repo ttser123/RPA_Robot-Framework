@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.11.9 on win32)" generated="2025-07-23T22:07:27.832728" rpa="false" schemaversion="5">
+<suite id="s1" name="Login" source="C:\Users\ttser\OneDrive\เดสก์ท็อป\RPA_Robot Framework\auth.test\login.test\login.robot">
+<kw name="Open Browser To Login Page" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:28.341396" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/auth/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-23T22:07:28.340395" elapsed="1.318450"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-23T22:07:29.658845" elapsed="0.041172"/>
+</kw>
+<status status="PASS" start="2025-07-23T22:07:28.340395" elapsed="1.359622"/>
+</kw>
+<test id="s1-t1" name="Login With Excel Data" line="11">
+<kw name="Open Workbook" owner="RPA.Excel.Files">
+<msg time="2025-07-23T22:07:29.706902" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x000001737E76C290&gt;</msg>
+<arg>../users.xlsx</arg>
+<doc>Open an existing Excel workbook.</doc>
+<status status="PASS" start="2025-07-23T22:07:29.701016" elapsed="0.005886"/>
+</kw>
+<kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
+<msg time="2025-07-23T22:07:29.707902" level="INFO">Created table: Table(columns=['username', 'password'], rows=4)</msg>
+<msg time="2025-07-23T22:07:29.707902" level="INFO">${rows} = Table(columns=['username', 'password'], rows=4)</msg>
+<var>${rows}</var>
+<arg>header=True</arg>
+<doc>Read the contents of a worksheet into a Table container. Allows
+sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
+<status status="PASS" start="2025-07-23T22:07:29.706902" elapsed="0.001000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Login And Check Result">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:29.709901" level="INFO">Typing text 'admin' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:29.708902" elapsed="0.097215"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:29.806117" level="INFO">Typing text 'admin' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:29.806117" elapsed="0.107806"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:29.913923" level="INFO">Clicking button 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:29.913923" elapsed="0.173539"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-23T22:07:32.087576" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-23T22:07:30.087462" elapsed="2.000114"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Page Should Not Contain" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:32.108476" level="INFO">Current page does not contain text 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง'.</msg>
+<arg>ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<status status="PASS" start="2025-07-23T22:07:32.087576" elapsed="0.021913"/>
+</kw>
+<arg>Page Should Not Contain</arg>
+<arg>ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2025-07-23T22:07:32.087576" elapsed="0.021913"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:32.109489" level="INFO">Opening url 'http://localhost:3000/auth/login'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-23T22:07:32.109489" elapsed="0.039170"/>
+</kw>
+<arg>${row}[username]</arg>
+<arg>${row}[password]</arg>
+<status status="PASS" start="2025-07-23T22:07:29.708902" elapsed="2.440757"/>
+</kw>
+<var name="${row}">{'username': 'admin', 'password': 'admin'}</var>
+<status status="PASS" start="2025-07-23T22:07:29.708902" elapsed="2.440757"/>
+</iter>
+<iter>
+<kw name="Login And Check Result">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:32.150659" level="INFO">Typing text 'user1' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:32.149659" elapsed="0.065398"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:32.216061" level="INFO">Typing text 'user1' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:32.215057" elapsed="0.082805"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:32.299044" level="INFO">Clicking button 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:32.297862" elapsed="0.060569"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-23T22:07:34.358989" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-23T22:07:32.358431" elapsed="2.000558"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Page Should Not Contain" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:34.372972" level="INFO">Current page does not contain text 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง'.</msg>
+<arg>ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<status status="PASS" start="2025-07-23T22:07:34.358989" elapsed="0.013983"/>
+</kw>
+<arg>Page Should Not Contain</arg>
+<arg>ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2025-07-23T22:07:34.358989" elapsed="0.013983"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:34.372972" level="INFO">Opening url 'http://localhost:3000/auth/login'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-23T22:07:34.372972" elapsed="0.049331"/>
+</kw>
+<arg>${row}[username]</arg>
+<arg>${row}[password]</arg>
+<status status="PASS" start="2025-07-23T22:07:32.149659" elapsed="2.272644"/>
+</kw>
+<var name="${row}">{'username': 'user1', 'password': 'user1'}</var>
+<status status="PASS" start="2025-07-23T22:07:32.149659" elapsed="2.272644"/>
+</iter>
+<iter>
+<kw name="Login And Check Result">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:34.424240" level="INFO">Typing text 'user2' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:34.424240" elapsed="0.078138"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:34.503925" level="INFO">Typing text 'user2' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:34.503925" elapsed="0.070213"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:34.574138" level="INFO">Clicking button 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:34.574138" elapsed="0.057169"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-23T22:07:36.631876" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-23T22:07:34.631307" elapsed="2.000569"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Page Should Not Contain" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:36.649102" level="INFO">Current page does not contain text 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง'.</msg>
+<arg>ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<status status="PASS" start="2025-07-23T22:07:36.631876" elapsed="0.017226"/>
+</kw>
+<arg>Page Should Not Contain</arg>
+<arg>ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2025-07-23T22:07:36.631876" elapsed="0.017226"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:36.649102" level="INFO">Opening url 'http://localhost:3000/auth/login'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-23T22:07:36.649102" elapsed="0.049364"/>
+</kw>
+<arg>${row}[username]</arg>
+<arg>${row}[password]</arg>
+<status status="PASS" start="2025-07-23T22:07:34.423735" elapsed="2.274731"/>
+</kw>
+<var name="${row}">{'username': 'user2', 'password': 'user2'}</var>
+<status status="PASS" start="2025-07-23T22:07:34.423735" elapsed="2.274731"/>
+</iter>
+<iter>
+<kw name="Login And Check Result">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:36.699466" level="INFO">Typing text 'user3' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:36.699466" elapsed="0.079192"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:36.778658" level="INFO">Typing text 'user3' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:36.778658" elapsed="0.096873"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:36.875531" level="INFO">Clicking button 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:36.875531" elapsed="0.065948"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-23T22:07:38.941580" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-23T22:07:36.941479" elapsed="2.000101"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Page Should Not Contain" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:38.957693" level="INFO">Current page does not contain text 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง'.</msg>
+<arg>ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<status status="PASS" start="2025-07-23T22:07:38.941580" elapsed="0.016113"/>
+</kw>
+<arg>Page Should Not Contain</arg>
+<arg>ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2025-07-23T22:07:38.941580" elapsed="0.017109"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:38.958689" level="INFO">Opening url 'http://localhost:3000/auth/login'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-23T22:07:38.958689" elapsed="0.055786"/>
+</kw>
+<arg>${row}[username]</arg>
+<arg>${row}[password]</arg>
+<status status="PASS" start="2025-07-23T22:07:36.698466" elapsed="2.316009"/>
+</kw>
+<var name="${row}">{'username': 'user3', 'password': 'user3'}</var>
+<status status="PASS" start="2025-07-23T22:07:36.698466" elapsed="2.316009"/>
+</iter>
+<var>${row}</var>
+<value>@{rows}</value>
+<status status="PASS" start="2025-07-23T22:07:29.708902" elapsed="9.305573"/>
+</for>
+<kw name="Close Workbook" owner="RPA.Excel.Files">
+<msg time="2025-07-23T22:07:39.015842" level="INFO">Closing workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x000001737E76C290&gt;</msg>
+<doc>Close the active workbook.</doc>
+<status status="PASS" start="2025-07-23T22:07:39.014475" elapsed="0.001367"/>
+</kw>
+<status status="PASS" start="2025-07-23T22:07:29.700017" elapsed="9.315825"/>
+</test>
+<test id="s1-t2" name="Login With Invalid Username" line="19">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:39.017855" level="INFO">Opening url 'http://localhost:3000/auth/login'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-23T22:07:39.017855" elapsed="0.020836"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:39.038691" level="INFO">Typing text 'wronguser' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>wronguser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:39.038691" elapsed="0.084263"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:39.122954" level="INFO">Typing text 'admin' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>admin</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:39.122954" elapsed="0.083265"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:39.207219" level="INFO">Clicking button 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:39.207219" elapsed="0.068126"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:39.329007" level="INFO">Current page contains text 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง'.</msg>
+<arg>ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-07-23T22:07:39.275345" elapsed="0.053662"/>
+</kw>
+<doc>กรณี username ไม่ถูกต้อง</doc>
+<status status="PASS" start="2025-07-23T22:07:39.016853" elapsed="0.312154"/>
+</test>
+<test id="s1-t3" name="Login With Invalid Password" line="27">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:39.331016" level="INFO">Opening url 'http://localhost:3000/auth/login'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-23T22:07:39.331016" elapsed="0.019101"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:39.352167" level="INFO">Typing text 'user1' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>user1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:39.351110" elapsed="0.086228"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:39.438783" level="INFO">Typing text 'wrongpassword' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>wrongpassword</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:39.438783" elapsed="0.109906"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:39.549688" level="INFO">Clicking button 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:39.549688" elapsed="0.071433"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:39.744268" level="INFO">Current page contains text 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง'.</msg>
+<arg>ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-07-23T22:07:39.622421" elapsed="0.121847"/>
+</kw>
+<doc>กรณี password ไม่ถูกต้อง</doc>
+<status status="PASS" start="2025-07-23T22:07:39.330007" elapsed="0.415544"/>
+</test>
+<test id="s1-t4" name="Login With Empty Fields" line="35">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:39.747556" level="INFO">Opening url 'http://localhost:3000/auth/login'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-23T22:07:39.747556" elapsed="0.033589"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:39.781654" level="INFO">Clicking button 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T22:07:39.781654" elapsed="0.074435"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2025-07-23T22:07:39.862207" level="INFO">Current location is 'http://localhost:3000/auth/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2025-07-23T22:07:39.856089" elapsed="0.006118"/>
+</kw>
+<doc>กรณีกรอกช่องว่าง/ไม่กรอกข้อมูล</doc>
+<status status="PASS" start="2025-07-23T22:07:39.746559" elapsed="0.115648"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-23T22:07:39.863215" elapsed="2.182164"/>
+</kw>
+<status status="PASS" start="2025-07-23T22:07:27.834285" elapsed="14.211094"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Login" id="s1" pass="4" fail="0" skip="0">Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

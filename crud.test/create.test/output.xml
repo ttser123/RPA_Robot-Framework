@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.11.9 on win32)" generated="2025-07-23T23:34:01.414970" rpa="false" schemaversion="5">
+<suite id="s1" name="Crud" source="C:\Users\ttser\OneDrive\เดสก์ท็อป\RPA_Robot Framework\crud.test\create.test\crud.robot">
+<kw name="Open Browser To Index Page" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:01.930537" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/index'.</msg>
+<arg>${INDEX_URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-23T23:34:01.930537" elapsed="1.318872"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-23T23:34:03.249409" elapsed="0.034734"/>
+</kw>
+<status status="PASS" start="2025-07-23T23:34:01.929118" elapsed="1.355025"/>
+</kw>
+<test id="s1-t1" name="Login As Admin" line="14">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:03.285540" level="INFO">Opening url 'http://localhost:3000/auth/login'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-23T23:34:03.285540" elapsed="0.049864"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:03.336695" level="INFO">Typing text 'admin' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>admin</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:34:03.335404" elapsed="0.089934"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:03.426616" level="INFO">Typing text 'admin' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>admin</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:34:03.426616" elapsed="0.091212"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:03.518974" level="INFO">Clicking button 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:34:03.518974" elapsed="0.063950"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:03.984975" level="INFO">Current location is 'http://localhost:3000/index'.</msg>
+<arg>${INDEX_URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2025-07-23T23:34:03.582924" elapsed="0.402051"/>
+</kw>
+<status status="PASS" start="2025-07-23T23:34:03.284143" elapsed="0.700832"/>
+</test>
+<test id="s1-t2" name="Create Posts From Excel" line="21">
+<kw name="Open Workbook" owner="RPA.Excel.Files">
+<msg time="2025-07-23T23:34:03.991406" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x000002B45741A010&gt;</msg>
+<arg>../crud.xlsx</arg>
+<doc>Open an existing Excel workbook.</doc>
+<status status="PASS" start="2025-07-23T23:34:03.986406" elapsed="0.005000"/>
+</kw>
+<kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
+<msg time="2025-07-23T23:34:03.992922" level="INFO">Created table: Table(columns=['title', 'content', 'category_id'], rows=4)</msg>
+<msg time="2025-07-23T23:34:03.992922" level="INFO">${rows} = Table(columns=['title', 'content', 'category_id'], rows=4)</msg>
+<var>${rows}</var>
+<arg>header=True</arg>
+<doc>Read the contents of a worksheet into a Table container. Allows
+sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
+<status status="PASS" start="2025-07-23T23:34:03.991406" elapsed="0.001516"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Create Post">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:03.993929" level="INFO">Opening url 'http://localhost:3000/posts/add'</msg>
+<arg>${ADD_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-23T23:34:03.993929" elapsed="0.075534"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:04.069463" level="INFO">Typing text 'test1' into text field 'name=title'.</msg>
+<arg>name=title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:34:04.069463" elapsed="0.102475"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:04.171938" level="INFO">Typing text 'test1' into text field 'name=content'.</msg>
+<arg>name=content</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:34:04.171938" elapsed="0.071995"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:04.243933" level="INFO">Selecting options from selection list 'name=category_id' by value 1.</msg>
+<arg>name=category_id</arg>
+<arg>${category_id}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-07-23T23:34:04.243933" elapsed="0.057325"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:04.302873" level="INFO">Clicking button 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:34:04.302873" elapsed="0.070972"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-23T23:34:06.374184" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-23T23:34:04.373845" elapsed="2.000339"/>
+</kw>
+<arg>${row}[title]</arg>
+<arg>${row}[content]</arg>
+<arg>${row}[category_id]</arg>
+<status status="PASS" start="2025-07-23T23:34:03.993929" elapsed="2.380255"/>
+</kw>
+<var name="${row}">{'title': 'test1', 'content': 'test1', 'category_id': 1}</var>
+<status status="PASS" start="2025-07-23T23:34:03.993929" elapsed="2.380761"/>
+</iter>
+<iter>
+<kw name="Create Post">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:06.375694" level="INFO">Opening url 'http://localhost:3000/posts/add'</msg>
+<arg>${ADD_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-23T23:34:06.375694" elapsed="0.037041"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:06.413763" level="INFO">Typing text 'test2' into text field 'name=title'.</msg>
+<arg>name=title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:34:06.412735" elapsed="0.071505"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:06.485241" level="INFO">Typing text 'test2' into text field 'name=content'.</msg>
+<arg>name=content</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:34:06.485241" elapsed="0.060734"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:06.545975" level="INFO">Selecting options from selection list 'name=category_id' by value 2.</msg>
+<arg>name=category_id</arg>
+<arg>${category_id}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-07-23T23:34:06.545975" elapsed="0.041503"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:06.588940" level="INFO">Clicking button 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:34:06.587478" elapsed="0.070927"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-23T23:34:08.659987" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-23T23:34:06.659408" elapsed="2.000579"/>
+</kw>
+<arg>${row}[title]</arg>
+<arg>${row}[content]</arg>
+<arg>${row}[category_id]</arg>
+<status status="PASS" start="2025-07-23T23:34:06.374690" elapsed="2.285297"/>
+</kw>
+<var name="${row}">{'title': 'test2', 'content': 'test2', 'category_id': 2}</var>
+<status status="PASS" start="2025-07-23T23:34:06.374690" elapsed="2.285297"/>
+</iter>
+<iter>
+<kw name="Create Post">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:08.660495" level="INFO">Opening url 'http://localhost:3000/posts/add'</msg>
+<arg>${ADD_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-23T23:34:08.660495" elapsed="0.037779"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:08.698274" level="INFO">Typing text 'test3' into text field 'name=title'.</msg>
+<arg>name=title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:34:08.698274" elapsed="0.060332"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:08.758606" level="INFO">Typing text 'test3' into text field 'name=content'.</msg>
+<arg>name=content</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:34:08.758606" elapsed="0.060384"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:08.818990" level="INFO">Selecting options from selection list 'name=category_id' by value 3.</msg>
+<arg>name=category_id</arg>
+<arg>${category_id}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-07-23T23:34:08.818990" elapsed="0.045508"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:08.864498" level="INFO">Clicking button 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:34:08.864498" elapsed="0.070798"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-23T23:34:10.936720" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-23T23:34:08.935296" elapsed="2.001424"/>
+</kw>
+<arg>${row}[title]</arg>
+<arg>${row}[content]</arg>
+<arg>${row}[category_id]</arg>
+<status status="PASS" start="2025-07-23T23:34:08.660495" elapsed="2.276225"/>
+</kw>
+<var name="${row}">{'title': 'test3', 'content': 'test3', 'category_id': 3}</var>
+<status status="PASS" start="2025-07-23T23:34:08.659987" elapsed="2.276733"/>
+</iter>
+<iter>
+<kw name="Create Post">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:10.937727" level="INFO">Opening url 'http://localhost:3000/posts/add'</msg>
+<arg>${ADD_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-23T23:34:10.937727" elapsed="0.038552"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:10.976279" level="INFO">Typing text 'test4' into text field 'name=title'.</msg>
+<arg>name=title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:34:10.976279" elapsed="0.073011"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:11.050756" level="INFO">Typing text 'test4' into text field 'name=content'.</msg>
+<arg>name=content</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:34:11.050756" elapsed="0.077045"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:11.127801" level="INFO">Selecting options from selection list 'name=category_id' by value 4.</msg>
+<arg>name=category_id</arg>
+<arg>${category_id}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-07-23T23:34:11.127801" elapsed="0.053972"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:34:11.181773" level="INFO">Clicking button 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:34:11.181773" elapsed="0.087856"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-23T23:34:13.269798" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-23T23:34:11.269629" elapsed="2.000169"/>
+</kw>
+<arg>${row}[title]</arg>
+<arg>${row}[content]</arg>
+<arg>${row}[category_id]</arg>
+<status status="PASS" start="2025-07-23T23:34:10.936720" elapsed="2.333078"/>
+</kw>
+<var name="${row}">{'title': 'test4', 'content': 'test4', 'category_id': 4}</var>
+<status status="PASS" start="2025-07-23T23:34:10.936720" elapsed="2.333584"/>
+</iter>
+<var>${row}</var>
+<value>@{rows}</value>
+<status status="PASS" start="2025-07-23T23:34:03.992922" elapsed="9.277382"/>
+</for>
+<kw name="Close Workbook" owner="RPA.Excel.Files">
+<msg time="2025-07-23T23:34:13.270304" level="INFO">Closing workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x000002B45741A010&gt;</msg>
+<doc>Close the active workbook.</doc>
+<status status="PASS" start="2025-07-23T23:34:13.270304" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-07-23T23:34:03.986406" elapsed="9.284906"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-23T23:34:13.272309" elapsed="2.191961"/>
+</kw>
+<status status="PASS" start="2025-07-23T23:34:01.416200" elapsed="14.048070"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Crud" id="s1" pass="2" fail="0" skip="0">Crud</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

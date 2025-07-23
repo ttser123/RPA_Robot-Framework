@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.11.9 on win32)" generated="2025-07-23T23:44:02.967333" rpa="false" schemaversion="5">
+<suite id="s1" name="Update" source="C:\Users\ttser\OneDrive\เดสก์ท็อป\RPA_Robot Framework\crud.test\update.test\update.robot">
+<kw name="Open Browser To Posts Page" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:44:03.181425" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/posts'.</msg>
+<arg>${POSTS_URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-23T23:44:03.181425" elapsed="1.304975"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-23T23:44:04.486400" elapsed="0.032518"/>
+</kw>
+<status status="PASS" start="2025-07-23T23:44:03.180422" elapsed="1.338496"/>
+</kw>
+<test id="s1-t1" name="Login As Admin" line="13">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:44:04.519925" level="INFO">Opening url 'http://localhost:3000/auth/login'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-23T23:44:04.519925" elapsed="0.036963"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:44:04.558815" level="INFO">Typing text 'user3' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>user3</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:44:04.558307" elapsed="0.087631"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:44:04.646938" level="INFO">Typing text 'user3' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>user3</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:44:04.645938" elapsed="0.075226"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:44:04.722166" level="INFO">Clicking button 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:44:04.722166" elapsed="0.065252"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:44:05.132153" level="INFO">Current location is 'http://localhost:3000/index'.</msg>
+<arg>${INDEX_URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2025-07-23T23:44:04.787418" elapsed="0.345740"/>
+</kw>
+<status status="PASS" start="2025-07-23T23:44:04.518918" elapsed="0.614240"/>
+</test>
+<test id="s1-t2" name="Update First Post" line="20">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:44:05.134154" level="INFO">Opening url 'http://localhost:3000/posts'</msg>
+<arg>${POSTS_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-23T23:44:05.134154" elapsed="0.060222"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:44:05.195369" level="INFO">Clicking link 'xpath=(//a[contains(@href,'/posts/edit')])[1]'.</msg>
+<arg>xpath=(//a[contains(@href,'/posts/edit')])[1]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:44:05.194376" elapsed="0.114355"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:44:05.308731" level="INFO">Typing text 'โพสต์ที่ถูกแก้ไข' into text field 'name=title'.</msg>
+<arg>name=title</arg>
+<arg>โพสต์ที่ถูกแก้ไข</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:44:05.308731" elapsed="0.074777"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:44:05.383508" level="INFO">Typing text 'เนื้อหาใหม่หลังแก้ไข' into text field 'name=content'.</msg>
+<arg>name=content</arg>
+<arg>เนื้อหาใหม่หลังแก้ไข</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:44:05.383508" elapsed="0.092070"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-23T23:44:05.475578" level="INFO">Clicking button 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-23T23:44:05.475578" elapsed="0.075477"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-23T23:44:06.552586" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-23T23:44:05.552457" elapsed="1.000129"/>
+</kw>
+<doc>ทดสอบแก้ไขโพสต์แรก</doc>
+<status status="PASS" start="2025-07-23T23:44:05.134154" elapsed="1.418432"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-23T23:44:06.553996" elapsed="2.139518"/>
+</kw>
+<status status="PASS" start="2025-07-23T23:44:02.968839" elapsed="5.725183"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Update" id="s1" pass="2" fail="0" skip="0">Update</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
